@@ -1,0 +1,49 @@
+form  {
+    padding: 20px 0;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(12, 36, 97);
+    width: 60%;
+    margin: auto;
+  }
+  label {
+    display: block;
+    color: rgb(246, 185, 59);
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 20px 0 10px 0;
+  }
+  input {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    width: 400px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(246, 185, 59);
+  }
+  textarea {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    width: 400px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(246, 185, 59);
+
+  }
+  form button {
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(250, 152, 58);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 0;
+  }
+  form button:hover {
+    background-color: rgb(246, 185, 59);
+    cursor: pointer;
+  }

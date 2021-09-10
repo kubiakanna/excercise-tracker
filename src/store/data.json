@@ -1,0 +1,34 @@
+{
+  "excercises": [
+    {
+      "title": "Deadlift",
+      "details": "Full body",
+      "complete": false,
+      "id": 2231
+    },
+    {
+      "title": "Back Squat",
+      "details": "Butt, Hips, Legs - Thighs",
+      "complete": false,
+      "id": 1074
+    },
+    {
+      "title": "Bent-over Row",
+      "details": "Arms, Back, Shoulders",
+      "complete": false,
+      "id": 2442
+    },
+    {
+      "title": "Bicep Curl",
+      "details": "Arms",
+      "complete": false,
+      "id": 1214
+    },
+    {
+      "title": "Calf Raises",
+      "details": "Legs - Calves and Shins",
+      "complete": false,
+      "id": 2070
+    }
+  ]
+}

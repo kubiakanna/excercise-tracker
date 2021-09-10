@@ -1,0 +1,19 @@
+.main-nav {
+    margin: 40px auto;
+  }
+  .main-nav a{
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 10px;
+    color: rgb(246, 185, 59);
+    font-size: 25px;
+    background-color: transparent;
+    width: auto;
+  }
+  .active-style {
+    border-bottom: 2px solid rgb(246, 185, 59);
+    padding-bottom: 4px;
+  }
+  .main-nav a:hover {
+    background-color: rgba(30, 55, 153, 0.8);
+  }

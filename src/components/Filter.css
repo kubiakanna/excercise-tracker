@@ -1,0 +1,13 @@
+.filter-nav button {
+    background: none;
+    border: none;
+    color: 	rgb(169,169,169);
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+  .filter-nav button.active {
+    color: rgb(246, 185, 59);
+  }

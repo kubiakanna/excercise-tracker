@@ -1,0 +1,46 @@
+.excercise {
+  margin: 20px auto;
+  background: rgb(245,245,245);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px 0px 	rgb(56,56,56);
+}
+.excercise:hover {
+  box-shadow: 5px 5px 40px 0 rgb(16,16,16);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+.buttons button,a {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  cursor: pointer;
+  color: rgb(245,245,245);
+  background: rgb(250, 152, 58);
+  padding: 6px;
+  border: 0;
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 120px;
+}
+.buttons button:hover, a:hover {
+  background: rgb(246, 185, 59);
+}
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 10px solid rgb(183, 21, 64);
+}
+.complete {
+  border-bottom: 10px solid rgb(120, 224, 143);
+}
+#edit {
+  padding: 0;
+}
