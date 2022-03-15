@@ -1,9 +1,9 @@
 import './App.css';
 import { Switch, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
-import CreateExcercise from './pages/CreateExcercise';
+import CreateExercise from './pages/CreateExercise';
 import Navbar from './components/Navbar';
-import EditExcercise from './pages/EditExcercise';
+import EditExercise from './pages/EditExercise';
 
 function App() {
   return (
@@ -13,11 +13,11 @@ function App() {
         <Route path="/home" exact>
           <HomePage />
         </Route>
-        <Route path="/create-excercise" exact>
-          <CreateExcercise />
+        <Route path="/create-exercise" exact>
+          <CreateExercise />
         </Route>
-        <Route path="/excercises/:id/edit" exact>
-          <EditExcercise />
+        <Route path="/exercises/:id/edit" exact>
+          <EditExercise />
         </Route>
       </Switch>
     </div>

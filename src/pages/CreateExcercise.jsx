@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './CreateExcercise.css';
+import './CreateExercise.css';
 
-const CreateExcercise = () => {
-    const [excercise, setExcercise] = useState({
+const CreateExercise = () => {
+    const [exercise, setExercise] = useState({
         title: '',
         details: ''
     })
     const history = useHistory();
     const handleChange = e => {
-        setExcercise({
-            ...excercise,
+        setExercise({
+            ...exercise,
             [e.target.name] : e.target.value
         })
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newExcercise = {
-            title: excercise.title,
-            details: excercise.details,
+        const newExercise = {
+            title: exercise.title,
+            details: exercise.details,
             complete: false,
             id: Math.floor(Math.random() * 10000)
         };
-        console.log("new excercise is: ", newExcercise);
-        fetch('http://localhost:3111/excercises', {
+        console.log("new exercise is: ", newExercise);
+        fetch('http://localhost:3111/exercises', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
-            body: JSON.stringify(newExcercise)
+            body: JSON.stringify(newExercise)
         })
         .then(() => {
             history.push('/home');
@@ -42,7 +42,7 @@ const CreateExcercise = () => {
             type="text"
             name="title"
             onChange={handleChange} 
-            value={excercise.title} 
+            value={exercise.title} 
             maxLength="15" 
             required
             />
@@ -52,12 +52,12 @@ const CreateExcercise = () => {
             cols="30" 
             rows="10" 
             onChange={handleChange} 
-            value={excercise.details} 
+            value={exercise.details} 
             required
             ></textarea>
-            <button>Add Excercise</button>
+            <button>Add Exercise</button>
         </form>
     )
 }
 
-export default CreateExcercise
+export default CreateExercise

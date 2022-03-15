@@ -1,52 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ExcerciseItem.css';
+import './ExerciseItem.css';
 
-function ExcerciseItem(props) {
-    const deleteExcercise = () => {
-        fetch(`http://localhost:3111/excercises/${props.excercise.id}`, {
+function ExerciseItem(props) {
+    const deleteExercise = () => {
+        fetch(`http://localhost:3111/exercises/${props.exercise.id}`, {
             method: 'DELETE'
         })
         .then(() => {
-            props.deleteExcercise(props.excercise.id);
+            props.deleteExercise(props.exercise.id);
         })
         .catch((error) => console.log(error));
     }
-    const toggleExcercise = () => {
-        fetch(`http://localhost:3111/excercises/${props.excercise.id}`, {
+    const toggleExercise = () => {
+        fetch(`http://localhost:3111/exercises/${props.exercise.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({complete: !props.excercise.complete})
+            body: JSON.stringify({complete: !props.exercise.complete})
         })
         .then(() => {
-            props.toggleExcercise(props.excercise.id);
+            props.toggleExercise(props.exercise.id);
         })
         .catch((error) => console.log(error));
 
     }
     const classes = [];
-    if(props.excercise.complete) {
+    if(props.exercise.complete) {
         classes.push("complete");
     }
     let status = 'Mark complete';
-    if(props.excercise.complete) {
+    if(props.exercise.complete) {
         status = 'Mark incomplete'
     }
 
     return (
-        <div className="excercise">
+        <div className="exercise">
             <div className="actions">
-                <h4 className={classes}>{props.excercise.title}</h4>
+                <h4 className={classes}>{props.exercise.title}</h4>
                 <div className="buttons">
-                    <button onClick={deleteExcercise}>Delete</button>
-                    <Link id="edit" to={`/excercises/${props.excercise.id}/edit`}>Edit</Link>
-                    <button onClick={toggleExcercise}>{status}</button>
+                    <button onClick={deleteExercise}>Delete</button>
+                    <Link id="edit" to={`/exercises/${props.exercise.id}/edit`}>Edit</Link>
+                    <button onClick={toggleExercise}>{status}</button>
                 </div>
             </div>
             <div className="details">
-                <p>{props.excercise.details}</p>
+                <p>{props.exercise.details}</p>
             </div>
         </div>
     )
 }
-export default ExcerciseItem;
+export default ExerciseItem;

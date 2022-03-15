@@ -8,8 +8,8 @@ function Navbar() {
             <NavLink to="/home" activeClassName="active-style">
                 Home
             </NavLink>
-            <NavLink to="/create-excercise" activeClassName="active-style">
-                Create Excercise
+            <NavLink to="/create-exercise" activeClassName="active-style">
+                Create Exercise
             </NavLink>
 
         </nav>

@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import './CreateExcercise.css';
+import './CreateExercise.css';
 
-const EditExcercise = () => {
-    const [excercise, setExcercise] = useState({
+const EditExercise = () => {
+    const [exercise, setExercise] = useState({
         title: '',
         details: ''
     })
     const params = useParams();
-    const excerciseId = params.id;
+    const exerciseId = params.id;
     const history = useHistory();
     const handleChange = e => {
-        setExcercise({
-            ...excercise,
+        setExercise({
+            ...exercise,
             [e.target.name] : e.target.value
         })
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3111/excercises/${excerciseId}`)
+        fetch(`http://localhost:3111/exercises/${exerciseId}`)
         .then((response) => {
             return response.json();
         })
         .then(data => {
-            setExcercise({
+            setExercise({
                 title: data.title,
                 details: data.details
             });
@@ -31,13 +31,13 @@ const EditExcercise = () => {
         .catch((error) => {
             console.log(error)
         })
-    }, [excerciseId])
+    }, [exerciseId])
     const handleEditSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3111/excercises/${excerciseId}`, {
+        fetch(`http://localhost:3111/exercises/${exerciseId}`, {
             method: 'PATCH',
             headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify(excercise)
+            body: JSON.stringify(exercise)
         })
         .then(() => {
             history.push('/home');
@@ -53,7 +53,7 @@ const EditExcercise = () => {
             type="text"
             name="title"
             onChange={handleChange} 
-            value={excercise.title} 
+            value={exercise.title} 
             maxLength="15" 
             required
             />
@@ -63,12 +63,12 @@ const EditExcercise = () => {
             cols="30" 
             rows="10" 
             onChange={handleChange} 
-            value={excercise.details} 
+            value={exercise.details} 
             required
             ></textarea>
-            <button>Update Excercise</button>
+            <button>Update Exercise</button>
         </form>
     )
 }
 
-export default EditExcercise
+export default EditExercise

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ExcercisesList from '../components/ExcercisesList';
+import ExercisesList from '../components/ExercisesList';
 import Filter from '../components/Filter';
 
 const HomePage = () => {
-    const [excercises, setExcercises] = useState([]);
+    const [exercises, setExercises] = useState([]);
     const [currFilter, setCurrFilter] = useState('all');
 
     const handleFilterUpdate = (newFilter) => {
@@ -11,49 +11,49 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        async function fetchExcercises() {
+        async function fetchExercises() {
             try {
-                const response = await fetch("http://localhost:3111/excercises");
-                const fetchedExcercises = await response.json();
-                setExcercises(fetchedExcercises);
+                const response = await fetch("http://localhost:3111/exercises");
+                const fetchedExercises = await response.json();
+                setExercises(fetchedExercises);
             } catch (error) {
                 console.log(error);
             }
         }
-        fetchExcercises();
+        fetchExercises();
     }, []);
 
     const handleDelete = (id) => {
-        const excercisesAfterDeleting = excercises.filter(excercise => excercise.id !== id);
-        setExcercises(excercisesAfterDeleting);
+        const exercisesAfterDeleting = exercises.filter(exercise => exercise.id !== id);
+        setExercises(exercisesAfterDeleting);
     }
     const handleToggleComplete = (id) => {
         console.log('id is: ', id);
-        const clonedExcercises = [...excercises];
-        const clickedIndex = clonedExcercises.findIndex(excercise => excercise.id === id);
-        const clickedExcercise = clonedExcercises[clickedIndex];
-        clickedExcercise.complete = !clickedExcercise.complete;
-        setExcercises(clonedExcercises);
+        const clonedExercises = [...exercises];
+        const clickedIndex = clonedExercises.findIndex(exercise => exercise.id === id);
+        const clickedExercise = clonedExercises[clickedIndex];
+        clickedExercise.complete = !clickedExercise.complete;
+        setExercises(clonedExercises);
     }
 
     let jsx = (
-        <ExcercisesList 
-            toggleExcercise={handleToggleComplete}
-            deleteExcercise={handleDelete}
-            excercises={excercises}
+        <ExercisesList 
+            toggleExercise={handleToggleComplete}
+            deleteExercise={handleDelete}
+            exercises={exercises}
         />
     );
     if(currFilter === 'completed') {
-        jsx = <ExcercisesList 
-                toggleExcercise={handleToggleComplete}
-                deleteExcercise={handleDelete}
-                excercises={excercises.filter(excercise => excercise.complete === true)}
+        jsx = <ExercisesList 
+                toggleExercise={handleToggleComplete}
+                deleteExercise={handleDelete}
+                exercises={exercises.filter(exercise => exercise.complete === true)}
             />
     } else if(currFilter === 'pending') {
-        jsx = <ExcercisesList 
-                toggleExcercise={handleToggleComplete}
-                deleteExcercise={handleDelete}
-                excercises={excercises.filter(excercise => excercise.complete === false)}
+        jsx = <ExercisesList 
+                toggleExercise={handleToggleComplete}
+                deleteExercise={handleDelete}
+                exercises={exercises.filter(exercise => exercise.complete === false)}
             />
     }
 
